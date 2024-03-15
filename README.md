@@ -1,4 +1,4 @@
-# Data Structures
+# Data Structures 📦
 
 A repo containing various data structures expressed in various languages.
 
