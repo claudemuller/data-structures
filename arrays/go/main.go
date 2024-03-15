@@ -1,3 +1,5 @@
+// Package main demonstartes Arrays
+// https://dxt.rs/category/programming/general/data-structures#arrays
 package main
 
 import "fmt"
@@ -7,6 +9,7 @@ func main() {
 	twoDimArray()
 }
 
+// oneDimArray demonstrates the usage of a one dimensional array.
 func oneDimArray() {
 	fmt.Println("---------------------------------------------------------------------------------")
 	fmt.Println("- One Dimensional Arrays                                                        -")
@@ -31,6 +34,7 @@ func oneDimArray() {
 	fmt.Printf("%#v\n", arr2)
 }
 
+// twoDimArray demonstrates the usage of a two dimensional array.
 func twoDimArray() {
 	fmt.Println("---------------------------------------------------------------------------------")
 	fmt.Println("- Two Dimensional Arrays                                                        -")
