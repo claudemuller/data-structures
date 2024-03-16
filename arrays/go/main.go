@@ -1,4 +1,4 @@
-// Package main demonstartes Arrays
+// Package main demonstrates Arrays
 // https://dxt.rs/category/programming/general/data-structures#arrays
 package main
 
@@ -11,18 +11,19 @@ func main() {
 
 // oneDimArray demonstrates the usage of a one dimensional array.
 func oneDimArray() {
-	fmt.Println("---------------------------------------------------------------------------------")
-	fmt.Println("- One Dimensional Arrays                                                        -")
+	fmt.Println("-------------------------------------------------------------------------------")
+	fmt.Printf("- One Dimensional Arrays                                                      -\n")
 
 	// Declare and initialise a 10 elment array
 	arr1 := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	// Get the length of the array
+	fmt.Printf("len:%d\n", len(arr1))
 
 	// Access array elements by iterating over the array
 	for i, v := range arr1 {
 		fmt.Printf("idx:%d val:%d\n", i, v)
 	}
-
-	fmt.Println("------------------------------------")
 
 	// Declare a 10 elment array
 	var arr2 [10]int
@@ -36,8 +37,8 @@ func oneDimArray() {
 
 // twoDimArray demonstrates the usage of a two dimensional array.
 func twoDimArray() {
-	fmt.Println("---------------------------------------------------------------------------------")
-	fmt.Println("- Two Dimensional Arrays                                                        -")
+	fmt.Println("-------------------------------------------------------------------------------")
+	fmt.Printf("- Two Dimensional Arrays                                                      -\n")
 
 	// Declare and initialise a 10 elment, 2 dimensional array
 	arr1 := [5][5]int{
@@ -51,8 +52,6 @@ func twoDimArray() {
 			fmt.Printf("row:%d col:%d val:%d\n", r, c, v)
 		}
 	}
-
-	fmt.Println("------------------------------------")
 
 	// Declare a 10 elment array
 	var arr2 [5][5]int
