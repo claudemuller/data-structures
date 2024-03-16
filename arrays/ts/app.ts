@@ -10,7 +10,7 @@ twoDimArray();
 /*
  * oneDimArray demonstrates the usage of a one dimensional array.
  */
-function oneDimArray() {
+function oneDimArray(): void {
     console.log("----------------------------------------------------------");
     console.log("- One Dimensional Arrays                                 -\n");
 
@@ -33,7 +33,7 @@ function oneDimArray() {
     }
 
     // Declare a 10 elment array
-    const arr2 = [];
+    const arr2: Array<number> = [];
 
     // Fill the array with values using direct indexing
     for (let i = 0; i < 10; i++) {
@@ -52,7 +52,7 @@ function oneDimArray() {
 
     // Remove i.e. pop, iteams off of the end
     for (let i = 0; i < 10; i++) {
-        arr2.pop(i + 1);
+        arr2.pop();
     }
     console.log(arr2);
 
@@ -64,7 +64,7 @@ function oneDimArray() {
 
     // Remove i.e. shifting, iteams off of the beginning
     for (let i = 0; i < 10; i++) {
-        arr2.shift(i + 1);
+        arr2.shift();
     }
     console.log(arr2);
 }
@@ -72,8 +72,8 @@ function oneDimArray() {
 /*
  * oneDimArray demonstrates the usage of a two dimensional array.
  */
-function twoDimArray() {
-    console.log("\n----------------------------------------------------------");
+function twoDimArray(): void {
+    console.log("----------------------------------------------------------");
     console.log("- Two Dimensional Arrays                                 -\n");
 
     // Declare and initialise a 10 elment, 2 dimensional array
@@ -91,7 +91,7 @@ function twoDimArray() {
     }
 
     // Declare a 10 elment array
-    let arr2 = [[], [], [], [], []];
+    let arr2: Array<Array<number>> = [[], [], [], [], []];
 
     // Fill the array with values
     for (let i = 0; i < 5; i++) {
