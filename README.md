@@ -10,5 +10,4 @@ The [companion article](https://dxt.rs/category/programming/general/data-structu
 - [in C](https://github.com/claudemuller/data-structures/tree/master/arrays/c)
 - [in TypeScript](https://github.com/claudemuller/data-structures/tree/master/arrays/ts)
 - [in JavaScript](https://github.com/claudemuller/data-structures/tree/master/arrays/js)
-- [in Python](https://github.com/claudemuller/data-structures/tree/master/arrays/python)
 
