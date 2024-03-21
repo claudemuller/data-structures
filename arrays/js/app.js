@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------------------------------------
  * Demonstartion of Arrays
  *
- * https://dxt.rs/category/programming/general/data-structures#arrays
+ * https://dxt.rs/category/programming/general/arrays
  */
 
 oneDimArray();
