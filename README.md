@@ -16,6 +16,7 @@ The [companion article](https://dxt.rs/category/programming/general/data-structu
 The [companion article](https://dxt.rs/category/programming/general/linked-lists/) discussing linked lists can be found here.
 
 [![js](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.js.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.js.yml)
+[![go](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.go.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.go.yml)
 
 - [in Go](https://github.com/claudemuller/data-structures/tree/master/linked-lists/go)
 - [in C](https://github.com/claudemuller/data-structures/tree/master/linked-lists/c)
