@@ -16,11 +16,11 @@ jobs:
           node-version: 16.x
       - name: Setup yarn
         run: npm install -g yarn
-      - name: Setup Nodejs with yarn caching
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16.x"
-          cache: yarn
+      # - name: Setup Nodejs with yarn caching
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "16.x"
+      #     cache: yarn
       - name: Install dependencies
         run: yarn
         working-directory: linked-lists/js
