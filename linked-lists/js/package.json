@@ -1,9 +1,9 @@
 {
-  "name": "arrays",
+  "name": "linked-lists",
   "version": "1.0.0",
-  "description": "Package demonstrating arrays",
+  "description": "Package demonstrating linked lists",
   "main": "src/app.js",
-  "repository": "https://github.com/claudemuller/data-structures/arrays/js",
+  "repository": "https://github.com/claudemuller/data-structures/linked-lists/js",
   "author": "Claude Müller",
   "license": "MIT",
   "type": "module",
