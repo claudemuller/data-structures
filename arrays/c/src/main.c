@@ -4,7 +4,7 @@ void one_dim_array(void);
 void two_dim_array(void);
 void print_arr(const int *arr, const int size);
 
-int main(int argc, char *argv[])
+int main(void)
 {
     one_dim_array();
     two_dim_array();
@@ -21,7 +21,7 @@ void one_dim_array(void)
     int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
     // Get the length of the array
-    printf("len:%d\n", sizeof(arr1) / sizeof(arr1[0]));
+    printf("len:%ld\n", sizeof(arr1) / sizeof(arr1[0]));
 
     // Access array elements by iterating over the array
     for (int i = 0; i < 10; i++) {
