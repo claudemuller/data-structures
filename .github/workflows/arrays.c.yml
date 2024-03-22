@@ -1,0 +1,18 @@
+name: c
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install packages
+        run: |
+          sudo apt update
+          sudo apt -y install build-essential
+      - name: Run examples
+        run: make run
+        working-directory: arrays/c
