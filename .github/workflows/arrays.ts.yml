@@ -1,0 +1,29 @@
+name: ts
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Setup yarn
+        run: npm install -g yarn
+      # - name: Setup Nodejs with yarn caching
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "16.x"
+      #     cache: yarn
+      - name: Install dependencies
+        run: yarn
+        working-directory: arrays/ts
+      - name: Run examples
+        run: yarn start
+        working-directory: arrays/ts
