@@ -11,3 +11,12 @@ The [companion article](https://dxt.rs/category/programming/general/data-structu
 - [in TypeScript](https://github.com/claudemuller/data-structures/tree/master/arrays/ts)
 - [in JavaScript](https://github.com/claudemuller/data-structures/tree/master/arrays/js)
 
+## [Linked Lists](https://github.com/claudemuller/data-structures/tree/master/linked-lists)
+
+The [companion article](https://dxt.rs/category/programming/general/linked-lists/) discussing linked lists can be found here.
+
+- [in Go](https://github.com/claudemuller/data-structures/tree/master/linked-lists/go)
+- [in C](https://github.com/claudemuller/data-structures/tree/master/linked-lists/c)
+- [in TypeScript](https://github.com/claudemuller/data-structures/tree/master/linked-lists/ts)
+- [in JavaScript](https://github.com/claudemuller/data-structures/tree/master/linked-lists/js)
+

@@ -1,6 +1,6 @@
 # Linked Lists in JavaScript
 
-The [companion article](https://dxt.rs/category/programming/general/linked-lists/js) discussing linked lists can be found here.
+The [companion article](https://dxt.rs/category/programming/general/linked-lists) discussing linked lists can be found here.
 
 ## Requirements
 
