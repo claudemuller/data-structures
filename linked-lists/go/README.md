@@ -1,5 +1,7 @@
 # Linked Lists in Go
 
+[![go](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.go.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.go.yml)
+
 The [companion article](https://dxt.rs/category/programming/general/linked-lists) discussing linked lists can be found here.
 
 ## Requirements
