@@ -14,13 +14,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      - name: Run install
-        uses: borales/actions-yarn@v4
+      - name: Setup yarn
+        run: npm install -g yarn
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v2
         with:
-          cmd: install # will run `yarn install` command
-        working-directory: some_dir/another_dir
-      - name: Test the app
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test # will run `yarn test` command
-        working-directory: some_dir/another_dir
+          node-version: "16.x"
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
+        working-directory: linked-lists/js
+      - name: Run tests
+        run: yarn test
+        working-directory: linked-lists/js
