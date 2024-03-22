@@ -13,7 +13,7 @@ BIN_DIR = ./bin
 TEST_DIR = ./tests
 TEST_SRC = $(filter-out ./src/main.c, $(wildcard ./src/*.c)) $(TEST_DIR)/*.c
 
-all: setup-bin
+run: setup-bin
 	$(CC) $(CFLAGS) $(LIBS) $(SRC_FILES) -o $(BIN_DIR)/main $(LDFLAGS) && $(BIN_DIR)/main
 
 setup-bin:
