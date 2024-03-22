@@ -1,0 +1,13 @@
+{
+  "name": "arrays",
+  "version": "1.0.0",
+  "description": "Package demonstrating arrays",
+  "main": "app.js",
+  "repository": "https://github.com/claudemuller/data-structures/arrays/js",
+  "author": "Claude Müller",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
