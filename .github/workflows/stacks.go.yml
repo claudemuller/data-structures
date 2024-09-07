@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: ['1.21.x']
+        go-version: ['1.22.x']
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go ${{ matrix.go-version }}
         uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go-version }}
-      - name: Run examples
-        run: go run main.go
+      - name: Run tests
+        run: go test ./...
         working-directory: stacks/go
