@@ -1,4 +1,4 @@
-name: c
+name: c-linked-lists
 on:
   push:
     branches: ["master"]

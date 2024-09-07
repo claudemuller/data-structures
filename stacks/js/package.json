@@ -1,0 +1,22 @@
+{
+	"name": "stacks",
+	"version": "1.0.0",
+	"description": "Package demonstrating stacks",
+	"main": "src/app.js",
+	"repository": "https://github.com/claudemuller/data-structures/stacks/js",
+	"author": "Claude Müller",
+	"license": "MIT",
+	"scripts": {
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.3",
+		"@babel/preset-env": "^7.24.3",
+		"jest": "^29.7.0"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.jsx?$": "babel-jest"
+		}
+	}
+}
