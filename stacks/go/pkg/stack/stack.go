@@ -37,3 +37,12 @@ func (s *Stack) Pop() (int, error) {
 func (s *Stack) Len() int {
 	return len(s.data)
 }
+
+// Peek returns the value at the top of the stack without removing it from the stack.
+func (s *Stack) Peek() (int, error) {
+	if len(s.data) == 0 {
+		return 0, ErrStackEmpty
+	}
+
+	return s.data[len(s.data)-1], nil
+}

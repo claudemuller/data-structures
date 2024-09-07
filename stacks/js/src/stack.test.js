@@ -67,3 +67,44 @@ describe("pop", () => {
     });
 });
 
+describe("peek", () => {
+    it("should return the only value at the top of a stack", () => {
+        // Arrange.
+        const stack = new Stack([1]);
+
+        // Act.
+        const actual = stack.peek();
+        const actualLen = stack.len();
+
+        // Assert.
+        expect(actual).toEqual(1);
+        expect(actualLen).toEqual(1);
+    });
+
+    it("should return the value at the top of a non-empty stack", () => {
+        // Arrange.
+        const stack = new Stack([1, 2, 3]);
+
+        // Act.
+        const actual = stack.peek();
+        const actualLen = stack.len();
+
+        // Assert.
+        expect(actual).toEqual(3);
+        expect(actualLen).toEqual(3);
+    });
+
+    it("should return null when peeping from an empty stack", () => {
+        // Arrange.
+        const stack = new Stack();
+
+        // Act.
+        const actual = stack.peek();
+        const actualLen = stack.len();
+
+        // Assert.
+        expect(actual).toBeNull();
+        expect(actualLen).toEqual(0);
+    });
+});
+

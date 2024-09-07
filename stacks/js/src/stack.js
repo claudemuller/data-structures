@@ -29,12 +29,11 @@ export class Stack {
 	/**
 	 * Pops the last item off the stack.
 	 * 
-	 * @returns {any} The value that gets popped off of the stack or null if empty.
+	 * @returns {(any|null)} The value that gets popped off of the stack or null if empty.
 	 */
 	pop() {
-		const v = this.#data.pop();
-		if (!v) return null;
-		return v;
+		if (!this.#data.length) return null;
+		return this.#data.pop();
 	}
 
 	/**
@@ -44,5 +43,15 @@ export class Stack {
 	*/
 	len() {
 		return this.#data.length;
+	}
+
+	/**
+	 * Peek returns the value at the top of the stack without removing it from the stack.
+	 *
+	 * @returns {(any|null)} The value at the top of the stack or null if empty.
+	 */
+	peek() {
+		if (!this.#data.length) return null;
+		return this.#data[this.#data.length - 1];
 	}
 }
