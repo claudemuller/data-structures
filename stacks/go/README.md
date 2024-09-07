@@ -14,7 +14,7 @@ The [companion article](https://dxt.rs/category/programming/general/stacks) disc
 ## Install Project Dependencies
 
 ```bash
-go mod tidy
+make tidy
 ```
 
 ## Run Tests
