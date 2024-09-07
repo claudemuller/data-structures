@@ -19,6 +19,6 @@ jobs:
       - name: Install dependencies
         run: yarn
         working-directory: stacks/js
-      - name: Run examples
-        run: yarn start
+      - name: Run tests
+        run: yarn test
         working-directory: stacks/js
