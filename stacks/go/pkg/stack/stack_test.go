@@ -113,3 +113,48 @@ func TestPop(t *testing.T) {
 		})
 	}
 }
+
+func TestPeek(t *testing.T) {
+	tests := []struct {
+		name      string
+		initStack []int
+		want      int
+		wantLen   int
+		err       error
+	}{
+		{
+			"Peek the value at the top of an empty stack",
+			nil,
+			0,
+			0,
+			stack.ErrStackEmpty,
+		},
+		{
+			"Peek the value at the top of a non-empty stack",
+			[]int{1, 2, 3},
+			3,
+			3,
+			nil,
+		},
+	}
+
+	for _, tc := range tests {
+		tt := tc
+		t.Run(tt.name, func(t *testing.T) {
+			s := stack.New(tt.initStack...)
+
+			got, err := s.Peek()
+			gotLen := s.Len()
+
+			if tt.err != err {
+				t.Errorf("want = %d, got = %d", tt.err, err)
+			}
+			if tt.want != got {
+				t.Errorf("want = %d, got = %d", tt.want, got)
+			}
+			if tt.wantLen != gotLen {
+				t.Errorf("want = %d, got = %d", tt.wantLen, gotLen)
+			}
+		})
+	}
+}
