@@ -1,4 +1,4 @@
-name: ts-linked-lists
+name: js-stacks
 on:
   push:
     branches: ["master"]
@@ -18,7 +18,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: yarn
-        working-directory: linked-lists/ts
-      - name: Run tests
-        run: yarn test
-        working-directory: linked-lists/ts
+        working-directory: stacks/js
+      - name: Run examples
+        run: yarn start
+        working-directory: stacks/js

@@ -17,6 +17,12 @@ The [companion article](https://dxt.rs/category/programming/general/linked-lists
 
 - [in Go](https://github.com/claudemuller/data-structures/tree/master/linked-lists/go) [![go](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.go.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.go.yml)
 - [in C](https://github.com/claudemuller/data-structures/tree/master/linked-lists/c) [![c](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.c.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.c.yml)
-- [in TypeScript](https://github.com/claudemuller/data-structures/tree/master/linked-lists/ts) [![ts](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.ts.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.ts.yml)
 - [in JavaScript](https://github.com/claudemuller/data-structures/tree/master/linked-lists/js) [![js](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.js.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/linked-lists.js.yml)
 
+## [Stacks](https://github.com/claudemuller/data-structures/tree/master/stacks)
+
+The [companion article](https://dxt.rs/category/programming/general/stacks/) discussing stacks can be found here.
+
+- [in Go](https://github.com/claudemuller/data-structures/tree/master/stacks/go) [![go](https://github.com/claudemuller/data-structures/actions/workflows/stacks.go.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/stacks.go.yml)
+- [in C](https://github.com/claudemuller/data-structures/tree/master/stacks/c) [![c](https://github.com/claudemuller/data-structures/actions/workflows/stacks.c.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/stacks.c.yml)
+- [in JavaScript](https://github.com/claudemuller/data-structures/tree/master/stacks/js) [![js](https://github.com/claudemuller/data-structures/actions/workflows/stacks.js.yml/badge.svg)](https://github.com/claudemuller/data-structures/actions/workflows/stacks.js.yml)

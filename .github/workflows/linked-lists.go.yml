@@ -1,4 +1,4 @@
-name: go
+name: go-linked-lists
 on:
   push:
     branches: ["master"]

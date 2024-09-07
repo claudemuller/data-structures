@@ -1,4 +1,4 @@
-name: go-arrays
+name: go-stacks
 on:
   push:
     branches: ["master"]
@@ -19,4 +19,4 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Run examples
         run: go run main.go
-        working-directory: arrays/go
+        working-directory: stacks/go
