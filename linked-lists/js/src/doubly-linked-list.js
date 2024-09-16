@@ -14,7 +14,10 @@ export class DoublyLinkedList {
 
     append(val) {
         const newNode = new Node(val);
-        this.tail = newNode;
+
+        if (!this.tail) {
+            this.tail = newNode;
+        }
 
         if (!this.head) {
             this.head = newNode;
@@ -22,7 +25,9 @@ export class DoublyLinkedList {
         }
 
         const lastNode = this.tail;
-        lastNode.next = newNode;
+        this.tail = newNode;
+        this.tail.prev = lastNode;
+        lastNode.next = this.tail;
 
         return newNode;
     }

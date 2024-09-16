@@ -21,6 +21,7 @@ describe("append", () => {
             next: null,
         };
         list.head = node;
+        list.tail = node;
 
         // Act.
         const actual = list.append("second");
@@ -29,6 +30,25 @@ describe("append", () => {
         expect(actual.value).toEqual("second");
         expect(list.head.value).toEqual("first");
         expect(list.head.next.value).toEqual("second");
+        expect(list.tail.prev.value).toEqual("first");
+    });
+
+    it("should append a node to the end of a longer list", () => {
+        // Arrange.
+        const list = new DoublyLinkedList();
+
+        // Act.
+        list.append("first");
+        list.append("second");
+        list.append("third");
+        const actual = list.append("fourth");
+
+        // Assert.
+        expect(actual.value).toEqual("fourth");
+        expect(list.head.value).toEqual("first");
+        expect(list.head.next.value).toEqual("second");
+        expect(list.tail.value).toEqual("fourth");
+        expect(list.tail.prev.value).toEqual("third");
     });
 });
 
