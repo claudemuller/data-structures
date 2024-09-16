@@ -104,18 +104,21 @@ describe("remove", () => {
     it("should remove a node from a list of three nodes", () => {
         // Arrange.
         const list = new DoublyLinkedList();
+        const node2 = {
+            value: "second",
+        };
         const node3 = {
             value: "third",
             next: null,
+            prev: node2,
         };
-        const node2 = {
-            value: "second",
-            next: node3,
-        };
+        list.tail = node3;
+        node2.next = node3;
         const node1 = {
             value: "first",
             next: node2,
         };
+        node2.prev = node1;
         list.head = node1;
 
         // Act.
@@ -124,6 +127,8 @@ describe("remove", () => {
         // Assert.
         expect(list.head.value).toEqual("first");
         expect(list.head.next.value).toEqual("third");
+        expect(list.tail.value).toEqual("third");
+        expect(list.tail.prev.value).toEqual("first");
     });
 });
 
@@ -131,22 +136,25 @@ describe("traverse", () => {
     it("should traverse the list and find the node requested", () => {
         // Arrange.
         const list = new DoublyLinkedList();
+        const node2 = {
+            value: "second",
+        };
         const node3 = {
             value: "third",
             next: null,
+            prev: node2,
         };
-        const node2 = {
-            value: "second",
-            next: node3,
-        };
+        list.tail = node3;
+        node2.next = node3;
         const node1 = {
             value: "first",
             next: node2,
         };
+        node2.prev = node1;
         list.head = node1;
 
         // Act.
-        const actual = list.traverse(n => n.value === "second");
+        const actual = list.traverse(node2);
 
         // Assert.
         expect(actual.value).toEqual("second");
@@ -157,22 +165,25 @@ describe("traverseBackward", () => {
     it("should traverse the list backward and find the node requested", () => {
         // Arrange.
         const list = new DoublyLinkedList();
+        const node2 = {
+            value: "second",
+        };
         const node3 = {
             value: "third",
             next: null,
+            prev: node2,
         };
-        const node2 = {
-            value: "second",
-            next: node3,
-        };
+        list.tail = node3;
+        node2.next = node3;
         const node1 = {
             value: "first",
             next: node2,
         };
+        node2.prev = node1;
         list.head = node1;
 
         // Act.
-        const actual = list.traverseBackward(n => n.value === "second");
+        const actual = list.traverseBackward(node2);
 
         // Assert.
         expect(actual.value).toEqual("second");

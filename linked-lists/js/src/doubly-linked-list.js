@@ -40,29 +40,33 @@ export class DoublyLinkedList {
         return newNode;
     }
 
-    traverse(fn) {
+    traverse(node) {
+        const found = this.find(node);
+        if (found) return found;
+        return this.last;
+    }
+
+    find(node) {
         let current = this.head;
         let last = null;
 
         while (current) {
-            const result = fn(current, last);
+            if (current.value === node.value) return current;
             last = current;
             current = current.next;
-            if (result) break;
         }
 
-        return last;
+        return null;
     }
 
-    traverseBackward(fn) {
+    traverseBackward(node) {
         let current = this.tail;
         let first = null;
 
         while (current) {
-            const result = fn(current, first);
+            if (current.value === node.value) return current;
             first = current;
             current = current.prev;
-            if (result) break;
         }
 
         return first;
@@ -71,20 +75,22 @@ export class DoublyLinkedList {
     remove(node) {
         if (!this.head) return;
 
+        // If the value found is the first in the list
         if (this.head.value === node.value) {
             this.head = this.head.next;
             return;
         }
 
+        // If the value found is the last in the list
         if (this.tail.value === node.value) {
             this.tail = this.tail.prev;
             return;
         }
 
-        this.traverse((n, last) => {
-            if (n.value === node.value) {
-                last.next = n.next;
-            }
-        });
+        const found = this.find(node);
+        if (found) {
+            found.prev.next = found.next;
+            found.next.prev = found.prev;
+        }
     }
 }
