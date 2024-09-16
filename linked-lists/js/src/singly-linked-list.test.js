@@ -36,19 +36,24 @@ describe("insertAt", () => {
     it("should insert a node after the node passed", () => {
         // Arrange.
         const list = new SinglyLinkedList();
-        const node = {
-            value: "first",
+        const node2 = {
+            value: "second",
             next: null,
         };
-        list.head = node;
+        const node1 = {
+            value: "first",
+            next: node2,
+        };
+        list.head = node1;
 
         // Act.
-        const actual = list.insertAt(node, "second");
+        const actual = list.insertAt(node1, "third");
 
         // Assert.
-        expect(actual.value).toEqual("second");
+        expect(actual.value).toEqual("third");
+        expect(actual.next.value).toEqual("second");
         expect(list.head.value).toEqual("first");
-        expect(list.head.next.value).toEqual("second");
+        expect(list.head.next.value).toEqual("third");
     });
 });
 
@@ -130,5 +135,29 @@ describe("traverse", () => {
 
         // Assert.
         expect(actual.value).toEqual("second");
+    });
+
+    it("should traverse the list to the end", () => {
+        // Arrange.
+        const list = new SinglyLinkedList();
+        const node3 = {
+            value: "third",
+            next: null,
+        };
+        const node2 = {
+            value: "second",
+            next: node3,
+        };
+        const node1 = {
+            value: "first",
+            next: node2,
+        };
+        list.head = node1;
+
+        // Act.
+        const actual = list.traverse(_ => false);
+
+        // Assert.
+        expect(actual.value).toEqual("third");
     });
 });
