@@ -6,9 +6,9 @@ class Node {
 }
 
 export class SinglyLinkedList {
-    constructor() {
-        this.head = null;
-    }
+    head = null;
+
+    constructor() { }
 
     append(val) {
         const newNode = new Node(val);

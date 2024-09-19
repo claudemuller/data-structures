@@ -1,15 +1,17 @@
 class Node {
+    next = null;
+    prev = null;
+
     constructor(val) {
         this.value = val;
-        this.next = null;
-        this.prev = null;
     }
 }
 
 export class DoublyLinkedList {
+    head = null;
+    tail = null;
+
     constructor() {
-        this.head = null;
-        this.tail = null;
     }
 
     append(val) {
