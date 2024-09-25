@@ -1,163 +1,165 @@
-import { SinglyLinkedList } from "./singly-linked-list";
+import { describe, it } from "jsr:@std/testing/bdd";
+import { expect } from "jsr:@std/expect";
+import { SinglyLinkedList } from "./singly-linked-list.js";
 
 describe("append", () => {
-    it("should append a node to the end of an empty list", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
+  it("should append a node to the end of an empty list", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
 
-        // Act.
-        const actual = list.append("first");
+    // Act.
+    const actual = list.append("first");
 
-        // Assert.
-        expect(actual.value).toEqual("first");
-        expect(list.head.value).toEqual("first");
-    });
+    // Assert.
+    expect(actual.value).toEqual("first");
+    expect(list.head.value).toEqual("first");
+  });
 
-    it("should append a node to the end of a list", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
-        const node = {
-            value: "first",
-            next: null,
-        };
-        list.head = node;
+  it("should append a node to the end of a list", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
+    const node = {
+      value: "first",
+      next: null,
+    };
+    list.head = node;
 
-        // Act.
-        const actual = list.append("second");
+    // Act.
+    const actual = list.append("second");
 
-        // Assert.
-        expect(actual.value).toEqual("second");
-        expect(list.head.value).toEqual("first");
-        expect(list.head.next.value).toEqual("second");
-    });
+    // Assert.
+    expect(actual.value).toEqual("second");
+    expect(list.head.value).toEqual("first");
+    expect(list.head.next.value).toEqual("second");
+  });
 });
 
 describe("insertAt", () => {
-    it("should insert a node after the node passed", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
-        const node2 = {
-            value: "second",
-            next: null,
-        };
-        const node1 = {
-            value: "first",
-            next: node2,
-        };
-        list.head = node1;
+  it("should insert a node after the node passed", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
+    const node2 = {
+      value: "second",
+      next: null,
+    };
+    const node1 = {
+      value: "first",
+      next: node2,
+    };
+    list.head = node1;
 
-        // Act.
-        const actual = list.insertAt(node1, "third");
+    // Act.
+    const actual = list.insertAt(node1, "third");
 
-        // Assert.
-        expect(actual.value).toEqual("third");
-        expect(actual.next.value).toEqual("second");
-        expect(list.head.value).toEqual("first");
-        expect(list.head.next.value).toEqual("third");
-    });
+    // Assert.
+    expect(actual.value).toEqual("third");
+    expect(actual.next.value).toEqual("second");
+    expect(list.head.value).toEqual("first");
+    expect(list.head.next.value).toEqual("third");
+  });
 });
 
 describe("remove", () => {
-    it("should do nothing when removing a node from an empty list", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
+  it("should do nothing when removing a node from an empty list", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
 
-        // Act.
-        const actual = list.remove("value");
+    // Act.
+    const actual = list.remove("value");
 
-        // Assert.
-        expect(actual).toBeUndefined();
-        expect(list.head).toBeNull();
-    });
+    // Assert.
+    expect(actual).toBeUndefined();
+    expect(list.head).toBeNull();
+  });
 
-    it("should remove a node from a list of one", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
-        const node = {
-            value: "first",
-            next: null,
-        };
-        list.head = node;
+  it("should remove a node from a list of one", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
+    const node = {
+      value: "first",
+      next: null,
+    };
+    list.head = node;
 
-        // Act.
-        list.remove(node);
+    // Act.
+    list.remove(node);
 
-        // Assert.
-        expect(list.head).toBeNull();
-    });
+    // Assert.
+    expect(list.head).toBeNull();
+  });
 
-    it("should remove a node from a list of three nodes", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
-        const node3 = {
-            value: "third",
-            next: null,
-        };
-        const node2 = {
-            value: "second",
-            next: node3,
-        };
-        const node1 = {
-            value: "first",
-            next: node2,
-        };
-        list.head = node1;
+  it("should remove a node from a list of three nodes", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
+    const node3 = {
+      value: "third",
+      next: null,
+    };
+    const node2 = {
+      value: "second",
+      next: node3,
+    };
+    const node1 = {
+      value: "first",
+      next: node2,
+    };
+    list.head = node1;
 
-        // Act.
-        list.remove(node2);
+    // Act.
+    list.remove(node2);
 
-        // Assert.
-        expect(list.head.value).toEqual("first");
-        expect(list.head.next.value).toEqual("third");
-    });
+    // Assert.
+    expect(list.head.value).toEqual("first");
+    expect(list.head.next.value).toEqual("third");
+  });
 });
 
 describe("traverse", () => {
-    it("should traverse the list and find the node requested", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
-        const node3 = {
-            value: "third",
-            next: null,
-        };
-        const node2 = {
-            value: "second",
-            next: node3,
-        };
-        const node1 = {
-            value: "first",
-            next: node2,
-        };
-        list.head = node1;
+  it("should traverse the list and find the node requested", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
+    const node3 = {
+      value: "third",
+      next: null,
+    };
+    const node2 = {
+      value: "second",
+      next: node3,
+    };
+    const node1 = {
+      value: "first",
+      next: node2,
+    };
+    list.head = node1;
 
-        // Act.
-        const actual = list.traverse(n => n.value === "second");
+    // Act.
+    const actual = list.traverse((n) => n.value === "second");
 
-        // Assert.
-        expect(actual.value).toEqual("second");
-    });
+    // Assert.
+    expect(actual.value).toEqual("second");
+  });
 
-    it("should traverse the list to the end", () => {
-        // Arrange.
-        const list = new SinglyLinkedList();
-        const node3 = {
-            value: "third",
-            next: null,
-        };
-        const node2 = {
-            value: "second",
-            next: node3,
-        };
-        const node1 = {
-            value: "first",
-            next: node2,
-        };
-        list.head = node1;
+  it("should traverse the list to the end", () => {
+    // Arrange.
+    const list = new SinglyLinkedList();
+    const node3 = {
+      value: "third",
+      next: null,
+    };
+    const node2 = {
+      value: "second",
+      next: node3,
+    };
+    const node1 = {
+      value: "first",
+      next: node2,
+    };
+    list.head = node1;
 
-        // Act.
-        const actual = list.traverse(_ => false);
+    // Act.
+    const actual = list.traverse((_) => false);
 
-        // Assert.
-        expect(actual.value).toEqual("third");
-    });
+    // Assert.
+    expect(actual.value).toEqual("third");
+  });
 });

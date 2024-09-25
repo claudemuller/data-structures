@@ -1,0 +1,11 @@
+{
+	"version": "1.0.0",
+	"description": "Package demonstrating linked lists",
+	"repository": "https://github.com/claudemuller/data-structures/linked-lists/js",
+	"author": "Claude Müller",
+	"license": "MIT",
+	"tasks": {},
+	"imports": {
+		"@std/assert": "jsr:@std/assert@1"
+	}
+}

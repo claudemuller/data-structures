@@ -1,74 +1,74 @@
 import { SinglyLinkedList } from "./singly-linked-list.js";
 
 class Node {
-	next = null;
+  next = null;
 
-	constructor(val) {
-		this.value = val;
-	}
+  constructor(val) {
+    this.value = val;
+  }
 }
 
 /* The CircularLinkedList is the same as the SinglyLinkedList except that it has no end node */
 export class CircularLinkedList extends SinglyLinkedList {
-	current = null;
+  current = null;
 
-	constructor() {
-		super();
-	}
+  constructor() {
+    super();
+  }
 
-	append(val) {
-		const newNode = new Node(val);
+  append(val) {
+    const newNode = new Node(val);
 
-		if (!this.current) {
-			this.current = newNode;
-			this.current.next = this.current
-			return newNode;
-		}
+    if (!this.current) {
+      this.current = newNode;
+      this.current.next = this.current;
+      return newNode;
+    }
 
-		newNode.next = this.current.next
-		this.current.next = newNode;
-		this.current = newNode;
+    newNode.next = this.current.next;
+    this.current.next = newNode;
+    this.current = newNode;
 
-		return newNode;
-	}
+    return newNode;
+  }
 
-	insertAt(node, val) {
-		const newNode = new Node(val);
-		newNode.next = node.next;
-		node.next = newNode;
-		this.current = newNode;
+  insertAt(node, val) {
+    const newNode = new Node(val);
+    newNode.next = node.next;
+    node.next = newNode;
+    this.current = newNode;
 
-		return newNode;
-	}
+    return newNode;
+  }
 
-	traverse(fn) {
-		let current = this.current;
-		let last = null;
+  traverse(fn) {
+    let current = this.current;
+    let last = null;
 
-		while (current) {
-			const result = fn(current, last);
-			last = current;
-			current = current.next;
+    while (current) {
+      const result = fn(current, last);
+      last = current;
+      current = current.next;
 
-			if (result) break;
-			if (current === this.current) return null;
-		}
+      if (result) break;
+      if (current === this.current) return null;
+    }
 
-		return last;
-	}
+    return last;
+  }
 
-	remove(node) {
-		if (!this.current) return;
+  remove(node) {
+    if (!this.current) return;
 
-		if (this.current.value === node.value) {
-			this.current = this.current.next;
-			return;
-		}
+    if (this.current.value === node.value) {
+      this.current = this.current.next;
+      return;
+    }
 
-		this.traverse((n, last) => {
-			if (n.value === node.value) {
-				last.next = n.next;
-			}
-		});
-	}
+    this.traverse((n, last) => {
+      if (n.value === node.value) {
+        last.next = n.next;
+      }
+    });
+  }
 }
