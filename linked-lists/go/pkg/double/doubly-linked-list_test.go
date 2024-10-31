@@ -1,4 +1,4 @@
-package singly
+package double
 
 import "testing"
 
@@ -41,6 +41,7 @@ func TestAppend(t *testing.T) {
 
 			got := ll.Append(tt.value)
 
+			// TODO: add in .prev checks
 			if tt.want.val != got.Val {
 				t.Errorf("want = %s, got = %s", tt.want.val, got.Val)
 			}
@@ -142,7 +143,7 @@ func TestRemove(t *testing.T) {
 					t.Errorf("want = %s, got = %s", tt.want.nextVal, ll.head.next.Val)
 				}
 				if tt.want.nextNextVal != ll.head.next.next.Val {
-					t.Errorf("want = %s, got = %s", tt.want.nextVal, ll.head.next.Val)
+					t.Errorf("want = %s, got = %s", tt.want.nextNextVal, ll.head.next.next.Val)
 				}
 			}
 		})
@@ -203,19 +204,76 @@ func TestTraverse(t *testing.T) {
 				t.Errorf("want = %s, got = %s", tt.want.val, got.Val)
 			}
 			if tt.want.nextNode != nil && tt.want.nextNode.Val != got.next.Val {
-				t.Errorf("want = %s, got = %s", tt.want.nextNode.Val, ll.head.next.Val)
+				t.Errorf("want = %s, got = %s", tt.want.nextNode.Val, got.next.Val)
 			}
 		})
 	}
 }
 
-func genList(empty bool) (SinglyLinkedList, map[string]*Node) {
+func TestTraverseBackward(t *testing.T) {
+	tests := []struct {
+		name        string
+		emptyList   bool
+		predicateFn func(*Node, *Node) bool
+		want        *Node
+		nextNode    *Node
+	}{
+		{
+			"should do nothing in an empty list",
+			true,
+			func(n, _ *Node) bool { return n.Val == "third" },
+			nil,
+			nil,
+		},
+		{
+			"should traverse a list to the beginning",
+			false,
+			func(_, _ *Node) bool { return false },
+			&Node{Val: "first"},
+			&Node{Val: "second"},
+		},
+		{
+			"should traverse a list backward and find the node requested",
+			false,
+			func(n, _ *Node) bool { return n.Val == "third" },
+			&Node{Val: "third"},
+			&Node{Val: "fourth"},
+		},
+	}
+
+	t.Parallel()
+
+	for _, tc := range tests {
+		tt := tc
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
+			ll, _ := genList(tt.emptyList)
+
+			got := ll.TraverseBackward(tt.predicateFn)
+
+			if tt.want == nil && tt.want != got {
+				t.Errorf("want = %s, got = %s", tt.want.Val, got.Val)
+				return
+			}
+			if tt.want != nil && tt.want.Val != got.Val {
+				t.Errorf("want = %s, got = %s", tt.want.Val, got.Val)
+			}
+			if tt.want != nil && tt.nextNode.Val != got.next.Val {
+				t.Errorf("want = %s, got = %s", tt.want.Val, got.next.Val)
+			}
+		})
+	}
+}
+
+func genList(empty bool) (DoublyLinkedList, map[string]*Node) {
 	if empty {
-		return SinglyLinkedList{}, map[string]*Node{}
+		return DoublyLinkedList{}, map[string]*Node{}
 	}
 
 	node4 := Node{
-		Val: "fourth",
+		Val:  "fourth",
+		next: nil,
 	}
 	node3 := Node{
 		Val:  "third",
@@ -228,15 +286,20 @@ func genList(empty bool) (SinglyLinkedList, map[string]*Node) {
 	node1 := Node{
 		Val:  "first",
 		next: &node2,
+		prev: nil,
 	}
+	node2.prev = &node1
+	node3.prev = &node2
+	node4.prev = &node3
 	nodes := map[string]*Node{
 		"first":  &node1,
 		"second": &node2,
 		"third":  &node3,
 		"fourth": &node4,
 	}
-	ll := SinglyLinkedList{
+	ll := DoublyLinkedList{
 		head: &node1,
+		tail: &node4,
 	}
 
 	return ll, nodes

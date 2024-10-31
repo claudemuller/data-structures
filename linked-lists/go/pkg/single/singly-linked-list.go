@@ -1,6 +1,6 @@
 // Package single demonstrates Singly Linked Lists
 // https://dxt.rs/category/programming/general/linked-lists#singly-linked-lists
-package singlyll
+package singly
 
 type Node struct {
 	Val  string
