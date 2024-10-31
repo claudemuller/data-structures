@@ -1,4 +1,4 @@
-package singly
+package single
 
 import "testing"
 
