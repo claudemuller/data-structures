@@ -12,7 +12,7 @@ The [companion article](https://dxt.rs/category/programming/general/linked-lists
 ## Install Project Dependencies
 
 ```bash
-go mod tidy
+make tidy
 ```
 
 ## Run Tests

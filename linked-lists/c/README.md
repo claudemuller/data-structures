@@ -10,8 +10,8 @@ The [companion article](https://dxt.rs/category/programming/general/linked-lists
 - or [clang](https://clang.llvm.org/)
 - [make](https://www.gnu.org/software/make/)
 
-## Run Examples
+## Run Tests
 
 ```bash
-make run
+make test
 ```

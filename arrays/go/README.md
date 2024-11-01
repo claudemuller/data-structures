@@ -12,7 +12,7 @@ The [companion article](https://dxt.rs/category/programming/general/arrays) disc
 ## Install Project Dependencies
 
 ```bash
-go mod tidy
+make tidy
 ```
 
 ## Run Examples
