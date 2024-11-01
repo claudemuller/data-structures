@@ -1,5 +1,6 @@
 #include "../src/singly-linked-list.h"
 #include <stdio.h>
+#include <string.h>
 
 int test_sl_append(void);
 
@@ -18,7 +19,18 @@ int test_sl_append(void)
     ASSERT(actual.head != NULL);
     ASSERT(actual.head->val == 22);
 
-    // TODO: more tests
+    node_t n2 = { .val = 5 };
+    node_t n1 = {
+        .val = 3,
+        .next = &n2,
+    };
+
+    actual.head = &n1;
+    sl_append(&actual, 22);
+    ASSERT(actual.head->val == 3);
+    ASSERT(actual.head->next == &n2);
+    ASSERT(actual.head->next->val == 5);
+    ASSERT(actual.head->next->next->val == 22);
 
     return 0;
 }
