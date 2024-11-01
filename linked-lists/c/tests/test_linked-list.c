@@ -4,6 +4,7 @@
 
 int test_sl_append(void);
 int test_sl_insert_at(void);
+int test_sl_traverse(void);
 
 #define ASSERT(condition)                                                  \
     do {                                                                   \
@@ -61,6 +62,52 @@ int test_sl_insert_at(void)
     return 0;
 }
 
+static bool endFn(node_t* node UNUSED, node_t* last UNUSED, node_t* target UNUSED)
+{
+    return false;
+}
+
+static bool findFn(node_t* node, node_t* last UNUSED, node_t* target)
+{
+    return node->val == target->val;
+}
+
+int test_sl_traverse(void)
+{
+    node_t n4 = { .val = 4 };
+    node_t n3 = {
+        .val = 3,
+        .next = &n4,
+    };
+    node_t n2 = {
+        .val = 2,
+        .next = &n3,
+    };
+    node_t n1 = {
+        .val = 1,
+        .next = &n2
+    };
+    singly_linked_list_t list = { 0 };
+    list.head = &n1;
+
+    node_t* actual = sl_traverse(&list, endFn, &n3);
+    ASSERT(actual == &n4);
+    ASSERT(actual->val == 4);
+    ASSERT(actual->next == NULL);
+
+    actual = sl_traverse(&list, findFn, &n1);
+    ASSERT(actual == &n1);
+    ASSERT(actual->val == 1);
+    ASSERT(actual->next->val == 2);
+
+    actual = sl_traverse(&list, findFn, &n3);
+    ASSERT(actual == &n3);
+    ASSERT(actual->val == 3);
+    ASSERT(actual->next->val == 4);
+
+    return 0;
+}
+
 int main(void)
 {
     int failed_tests = 0;
@@ -81,7 +128,19 @@ int main(void)
         printf("✅ All tests for 'sl_insert_at' function passed.\n");
     }
 
-    printf("✅ All tests passed successfully\n");
+    printf("Running tests for 'sl_traverse' function...\n");
+    if (test_sl_traverse() != 0) {
+        printf("❌ Some tests for 'sl_traverse' function failed.\n");
+        failed_tests++;
+    } else {
+        printf("✅ All tests for 'sl_traverse' function passed.\n");
+    }
+
+    if (failed_tests > 0) {
+        printf("❌ %d failed tests.\n", failed_tests);
+    } else {
+        printf("✅ All tests passed successfully\n");
+    }
 
     return 0;
 }
