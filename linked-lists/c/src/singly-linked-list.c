@@ -64,16 +64,22 @@ static bool remove_pred(node_t* node, node_t* last, node_t* target)
     return false;
 }
 
-void* sl_remove(singly_linked_list_t* list, node_t* n)
+void* sl_remove(singly_linked_list_t* list, node_t** n)
 {
     if (list->head == NULL) return NULL;
 
-    if (list->head->val == n->val) {
-        list->head = list->head->next;
-        return NULL;
+    if (list->head->val == (*n)->val) {
+        if (list->head->next == NULL) {
+            list->head = NULL;
+        } else {
+            list->head = list->head->next;
+        }
+        free(*n);
+
+        return *n = NULL;
     }
 
-    sl_traverse(list, remove_pred, n);
-
-    return NULL;
+    sl_traverse(list, remove_pred, *n);
+    free(*n);
+    return *n = NULL;
 }
